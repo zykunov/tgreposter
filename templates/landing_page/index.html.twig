@@ -1,8 +1,340 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LandingPageController!{% endblock %}
+{% block title %}TgReposter{% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" type="image/x-icon" href="/public/img/icon/favicon.png">
+{% endblock %}
+
+ {% block stylesheets %}
+     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+     <link rel="stylesheet" href="{{ asset('css/shortcode/shortcodes.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+ {% endblock %}
 
 {% block body %}
+    <header>
+        <nav id="header-top" class="navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navigation" aria-expanded="false">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path ('app_landing_page') }}"><h3 class="text-white">TeleReposter</h3>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navigation">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="#slider-area">Главная</a></li>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#features">Преимущества</a></li>
+                        <li><a href="#pricing">Тарифы</a></li>
+                        <li><a class="download-btn" href="#contact-area" data-toggle="modal" data-target="#regModal">Зарегистрироваться</a></li>
+                        <li><a class="download-btn" href="#contact-area" data-toggle="modal" data-target="#loginModal">Войти</a></li>
+                        <li><a class="download-btn" href="">Управление каналами</a></li>
+                        <a class="download-btn" href="">Выйти</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
+
+    <!-- hero area start -->
+    <div class="hero-area slider-1" id="slider-area">
+        <div class="slider">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-4 col-sm-offset-4 col-md-8">
+                        <div class="hero-text mr-ri-l">
+                            <h1>Tele Reposter</h1>
+                            <h1></h1>
+                            <p>Сервис, который позволяет за пару минут настроить репост контента
+                            в телеграм и отойти от рутины при ведении канала, освободив время для более важных дел.</p>
+                            <p>Добро пожаловать!<br> Только не нажимайте на красную кнопку.</p>
+                            <a href="#" class="hero-btn" data-toggle="modal" data-target="#regModal">Зарегистрироваться</a>
+                            <a href="main.php" class="hero-btn">Управление каналами</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- hero area end -->
+
+    <!-- About area start -->
+    <section id="about" class="about-area pt-130">
+        <div class="container">
+            <div class="row pb-3">
+                <div class="col-md-6">
+                    <div class="about-content">
+                        <h2>О нашем сервисе</h2>
+                        <p>TeleReposter - позволяет выбрать список групп в VK из которых будет копироваться контент и
+                            список каналов в TG в которые этот контент пойдет.</p>
+                        <p>Да, вот так просто, за несколько минут можно создать несколько каналов, которые будут
+                            автоматически наполняться контентом - Вам остается только продвигать.</p>
+                        <!--<p>Вы SMM специалист или владеете каналом в Telegram, а может даже несколькими каналами - тогда TeleReposter ваш незаменимый помощник </p>
+                        <p>Автоматизируйте наполнение вашего канала контентом за 2 минуты! </p>-->
+                        <?php if(!$login){ echo '<a href="#" class="hero-btn" data-toggle="modal" data-target="#regModal">
+                        Зарегистрироваться</a>'; } ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-img">
+                        <img src="img/other/about.jpg" alt=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About area End -->
+    <!-- Feature area start -->
+    <section id="features" class="feature-area gray-bg pt-128 pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="section-heading pb-55 text-center">
+                        <h2>Кому необходим TeleReposter?</h2>
+                        <p>Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de
+                            standaard proeftekst in deze bedrijfstak sinds.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="awesome-feature text-center">
+                        <div class="awesome-feature-icon">
+                            <span><i class="icofont icofont-alarm"></i></span>
+                        </div>
+                        <div class="awesome-feature-details">
+                            <h5>Владельцы сообществ в VK</h5>
+                            <p>У вас есть паблик в VK, но сейчас многие люди пользуются Вконтакте только для
+                                прослушивания музыки. Дублируйте свое сообщество в Telegram в автоматическом режиме!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="awesome-feature text-center">
+                        <div class="awesome-feature-icon">
+                            <span><i class="icofont icofont-light-bulb"></i></span>
+                        </div>
+                        <div class="awesome-feature-details">
+                            <h5>Владельцы Telegram каналов</h5>
+                            <p>У вас есть Telegram канал, но вам надоела рутина, когда надо постоянно находить новый
+                                контент, планировать автопостинг. TeleReposter - делает это все за вас!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 hidden-sm">
+                    <div class="awesome-feature text-center">
+                        <div class="awesome-feature-icon">
+                            <span><i class="icofont icofont-code"></i></span>
+                        </div>
+                        <div class="awesome-feature-details">
+                            <h5>Веб мастера</h5>
+                            <p>Вы вебмастер и видите новые тренды - реклама в Telegram стоит на порядок дороже чем в том
+                                же ВК. С TeleReposter - нет ничего проще чем создать сеть каналов, которые будут
+                                автоматически наполняться контентом, избаляя вас от рутины, освобождая Ваше время для
+                                продвижения сети.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Feature feature area end -->
+
+    <!-- fun fact area start -->
+    <section class="funfact-area bg-2 pt-125 pb-130">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="single-fact text-center">
+                        <h2 class="counter">8540</h2>
+                        <h5>Каналов в TG подключено к сервису</h5>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="single-fact text-center">
+                        <h2 class="counter">1200</h2>
+                        <h5>Пользователей</h5>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="single-fact text-center">
+                        <h2 class="counter">245652</h2>
+                        <h5>Опубликованных постов</h5>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- fun fact area end -->
+
+    <!-- Pricing Plan Area Start -->
+    <section id="pricing" class="pricing-area pt-130 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="section-heading pb-55 text-center">
+                        <h2>Тарифы</h2>
+                        <p>Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de
+                            standaard proeftekst in deze bedrijfstak sinds.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="pricing-single white-bg text-center mb-30">
+                        <div class="price-titel uppercase">
+                            <h4>БАЗОВЫЙ</h4>
+                        </div>
+                        <div class="pricing-price">
+                            <span>40</span>
+                        </div>
+                        <div class="price-decs">
+                            <ul>
+                                <li>Количество каналов: 1</li>
+                                <li>Количество постов: безлимитно</li>
+                                <li>Соц сети для репостов: ВК</li>
+                            </ul>
+                        </div>
+                        <div class="ordr-btn uppercase">
+                            <?php if(!$login){ echo '<a href="" data-toggle="modal" data-target="#regModal">Бесплатно -
+                            регистрация</a>';} ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="pricing-single active white-bg text-center mb-30">
+                        <div class="price-titel uppercase">
+                            <h4>СТАНДАРТНЫЙ</h4>
+                        </div>
+                        <div class="pricing-price">
+                            <span>50</span>
+                        </div>
+                        <div class="price-decs">
+                            <ul>
+                                <li>Количество каналов: 8</li>
+                                <li>Количество постов: безлимитно</li>
+                                <li>Соц сети для репостов: ВК или Instagram</li>
+                            </ul>
+                        </div>
+                        <div class="ordr-btn uppercase">
+                            <?php if(!$login){ echo '<a href="" data-toggle="modal" data-target="#regModal">490 ₽/
+                            мес.</a>';} ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="pricing-single white-bg text-center mb-30">
+                        <div class="price-titel uppercase">
+                            <h4>БЕЗЛИМИТ</h4>
+                        </div>
+                        <div class="pricing-price">
+                            <span>60</span>
+                        </div>
+                        <div class="price-decs">
+                            <ul>
+                                <li>Количество каналов: безлимитно</li>
+                                <li>Количество постов: безлимитно</li>
+                                <li>Соц сети для репостов: ВК + Instagram</li>
+                            </ul>
+                        </div>
+                        <div class="ordr-btn uppercase">
+                            <?php if(!$login){ echo '<a href="" data-toggle="modal" data-target="#regModal">990 ₽/
+                            мес.</a>';} ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Modal register-->
+    <div class="modal fade" id="regModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Регистрация</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="reg.php">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Логин</label>
+                            <input type="text" class="form-control" maxlength="15" name="login" pattern="^[a-zA-Z0-9]+$"
+                                   placeholder="Ваш логин" required>
+                            <small id="emailHelp" class="form-text text-muted">Можно использовать буквы и цифры,
+                                максимум 15 символов</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Пароль</label>
+                            <input type="password" class="form-control" minlength="6" maxlength="30"
+                                   pattern="^[а-яА-ЯёЁa-zA-Z0-9]+$" name="password" placeholder="Ваш пароль" required>
+                            <small id="emailHelp" class="form-text text-muted">Не менее 6 символов</small>
+                        </div>
+                        <button type="submit" name="btn_submit_auth" class="btn btn-danger">Зарегистрироваться</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end Modal register -->
+
+    <!-- Modal login-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Авторизация</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="auth.php">
+                        <div class="form-group">
+                            <label class="mb-1">Логин</label>
+                            <input type="text" class="form-control" maxlength="15" name="login" pattern="^[a-zA-Z0-9]+$"
+                                   placeholder="Ваш логин" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-1">Пароль</label>
+                            <input type="password" class="form-control" minlength="6" maxlength="30"
+                                   pattern="^[а-яА-ЯёЁa-zA-Z0-9]+$" name="password" placeholder="Ваш пароль" required>
+                        </div>
+                        <button type="submit" name="btn_submit_auth" class="btn btn-danger">Войти</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end Modal login -->
 
 {% endblock %}
+
+   {% block javascripts %}
+       {#       <script#}
+       {#               src="https://code.jquery.com/jquery-1.12.4.min.js"#}
+       {#               integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="#}
+       {#               crossorigin="anonymous"></script>#}
+       <script src="/public/js/vendor/modernizr-2.8.3.min.js"></script>
+       <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+               integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+       <script src="/public/js/bootstrap.min.js"></script>
+       <script src="/public/js/plugins.js"></script>
+       <script src="/public/js/main.js"></script>
+   {% endblock %}
