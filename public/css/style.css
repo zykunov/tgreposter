@@ -302,7 +302,7 @@ img.lazy {
     margin-bottom: 24px;
     position: relative;
     text-transform: capitalize;
-    line-height: 30px;
+    line-height: 1.2;
 }
 
 .section-heading p {
@@ -413,4 +413,9 @@ img.lazy {
 
 #scrollUp:hover {
     background: #3e3e3e;
+}
+
+.headerText{
+    font-size: 11px;
+    color: #ffffff;
 }
