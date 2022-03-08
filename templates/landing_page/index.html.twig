@@ -45,9 +45,9 @@
                             <li><a class="download-btn" href="">Управление каналами</a></li>
                             <li><a class="download-btn" href="">Выйти</a></li>
                         {% else %}
-                            <li><a class="download-btn" href="#contact-area" data-toggle="modal"
+                            <li><a class="download-btn" href="{{ path ('app_login')}}" data-toggle="modal"
                                    data-target="#loginModal">Войти</a></li>
-                            <li><a class="download-btn" href="#contact-area" data-toggle="modal"
+                            <li><a class="download-btn" href="{{ path ('app_register')}}" data-toggle="modal"
                                    data-target="#regModal">Зарегистрироваться</a></li>
                         {% endif %}
 
@@ -303,22 +303,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="reg.php">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Логин</label>
-                            <input type="text" class="form-control" maxlength="15" name="login" pattern="^[a-zA-Z0-9]+$"
-                                   placeholder="Ваш логин" required>
-                            <small id="emailHelp" class="form-text text-muted">Можно использовать буквы и цифры,
-                                максимум 15 символов</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Пароль</label>
-                            <input type="password" class="form-control" minlength="6" maxlength="30"
-                                   pattern="^[а-яА-ЯёЁa-zA-Z0-9]+$" name="password" placeholder="Ваш пароль" required>
-                            <small id="emailHelp" class="form-text text-muted">Не менее 6 символов</small>
-                        </div>
-                        <button type="submit" name="btn_submit_auth" class="btn btn-danger">Зарегистрироваться</button>
-                    </form>
+
                 </div>
             </div>
         </div>
@@ -337,19 +322,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="auth.php">
-                        <div class="form-group">
-                            <label class="mb-1">Логин</label>
-                            <input type="text" class="form-control" maxlength="15" name="login" pattern="^[a-zA-Z0-9]+$"
-                                   placeholder="Ваш логин" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="mb-1">Пароль</label>
-                            <input type="password" class="form-control" minlength="6" maxlength="30"
-                                   pattern="^[а-яА-ЯёЁa-zA-Z0-9]+$" name="password" placeholder="Ваш пароль" required>
-                        </div>
-                        <button type="submit" name="btn_submit_auth" class="btn btn-danger">Войти</button>
-                    </form>
+
                 </div>
             </div>
         </div>
