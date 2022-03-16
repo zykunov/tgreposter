@@ -1,0 +1,70 @@
+{% set route_name = app.request.attributes.get('_route') %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset ('css/panelStyle.css') }}">
+    {% endblock %}
+
+    {% block javascripts %}
+        <script
+                src="https://code.jquery.com/jquery-3.4.1.min.js"
+                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+                integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+                crossorigin="anonymous"></script>
+    {% endblock %}
+</head>
+<body>
+
+<!-- navigation start -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="">Tele Reposter</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li {% if route_name == "app_channels" %} class="nav-item active" {% else %} class="nav-item" {% endif %} >
+                <a class="nav-link" href="">Каналы</a>
+            </li>
+            <li {% if route_name == "channels" %} class="nav-item active" {% else %} class="nav-item" {% endif %} >
+                <a class="nav-link" href="">Оплата</a>
+            </li>
+            <li {% if route_name == "channels" %} class="nav-item active" {% else %} class="nav-item" {% endif %} >
+                <a class="nav-link" href="" tabindex="-1" aria-disabled="true">Рефералы</a>
+            </li>
+            <li {% if route_name == "profile" %} class="nav-item active" {% else %} class="nav-item" {% endif %} >
+                <a class="nav-link disabled" href="">Профиль</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="#" id="user_login"></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" id="date">Оплачено до: </a>
+            </li>
+        </ul>
+    </div>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <li><a class="btn btn-outline-danger" href="">Выйти</a></li>
+    {% endif %}
+
+</nav>
+<!-- navigation end -->
+
+{% block body %}
+{% endblock %}
+</body>
+
+</html>
